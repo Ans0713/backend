@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* User Profiles */
+    .user-profiles {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .user-profiles h2 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .user-profiles ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .user-profiles li {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .user-profiles a {
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .user-profiles a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+    .user-profiles p {
+      color: #4b5563;
+      margin-top: 0.25rem;
+    }
+
+    /* User Data Table */
+    .user-data {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .user-data h2 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .user-data table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .user-data th, .user-data td {
+      padding: 1rem;
+      text-align: left;
+    }
+    .user-data thead {
+      background-color: #f3f4f6;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .user-data tbody tr {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .user-data a {
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .user-data a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+    .user-data .text-red-600 {
+      color: #dc2626;
+    }
+    .user-data .text-red-600:hover {
+      color: #b91c1c;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <header class="bg-blue-600 text-white p-6 shadow-md">
+    <div class="container mx-auto flex flex-wrap justify-between items-center">
+      <h1 class="text-3xl font-bold">Users Page</h1>
+      <nav>
+        <a href="/" class="text-white hover:text-gray-300 px-4 py-2 transition duration-300">Home</a>
+        <a href="/users" class="text-white hover:text-gray-300 px-4 py-2 transition duration-300">Users</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <!-- Notification Section -->
+    <section class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6 rounded">
+      <h2 class="font-semibold text-yellow-800">Important Notice</h2>
+      <p class="text-yellow-800">This is an important update or notification for the users. Tailwind CSS makes it easy to highlight important information.</p>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Search Users</h2>
+      <form action="/search" method="GET" class="flex items-center">
+        <input type="text" name="query" placeholder="Search users..." class="border border-gray-300 rounded-l-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300">Search</button>
+      </form>
+    </section>
+
+    <!-- User Profile List -->
+    <section class="user-profiles">
+      <h2>User Profiles</h2>
+      <ul>
+        <li>
+          <a href="/users/1">User Profile 1</a>
+          <p>A brief description or status of User Profile 1.</p>
+        </li>
+        <li>
+          <a href="/users/2">User Profile 2</a>
+          <p>A brief description or status of User Profile 2.</p>
+        </li>
+        <li>
+          <a href="/users/3">User Profile 3</a>
+          <p>A brief description or status of User Profile 3.</p>
+        </li>
+        <!-- Add more profiles as needed -->
+      </ul>
+    </section>
+
+    <!-- User Data Table -->
+    <section class="user-data">
+      <h2>User Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>Admin</td>
+            <td>
+              <a href="/users/1/edit">Edit</a>
+              <a href="/users/1/delete" class="text-red-600 ml-4">Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane.smith@example.com</td>
+            <td>User</td>
+            <td>
+              <a href="/users/2/edit">Edit</a>
+              <a href="/users/2/delete" class="text-red-600 ml-4">Delete</a>
+            </td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-blue-100 p-6 rounded-lg shadow-md text-center">
+      <h2 class="text-xl font-semibold mb-4">Join Us Today!</h2>
+      <p class="mb-4">Sign up to get the latest updates and features delivered to your inbox.</p>
+      <a href="/signup" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300">Sign Up</a>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white p-6">
+    <div class="container mx-auto flex flex-wrap justify-between items-center">
+      <p>&copy; 2024 My Node Project. All rights reserved.</p>
+      <nav>
+        <a href="/" class="hover:text-gray-400 px-4">Home</a>
+        <a href="/users" class="hover:text-gray-400 px-4">Users</a>
+        <a href="/contact" class="hover:text-gray-400 px-4">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/scripts.js"></script>
+</body>
+</html>

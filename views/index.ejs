@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    header nav a {
+      color: #e8f4f8;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #bce0fd;
+    }
+
+    .hero-content {
+      background-color: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 5px solid #ffffff;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content a {
+      background-color: #ffffff;
+      color: #4a90e2;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.2s;
+      border: 2px solid #4a90e2;
+    }
+
+    .hero-content a:hover {
+      background-color: #eaf2f8;
+      transform: scale(1.05);
+    }
+
+    main {
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    .featured, .call-to-action, .blog, .testimonials {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.375rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .featured h2, .call-to-action h2, .blog h2, .testimonials h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+
+    .call-to-action {
+  text-align: center;
+  background-color: #eaf2f8;
+  border-left: 4px solid #4a90e2;
+  padding: 2rem 1.5rem; /* Increased padding for better spacing */
+}
+
+.call-to-action h2 {
+  margin-bottom: 1rem;
+}
+
+.call-to-action p {
+  margin-bottom: 1.5rem;
+}
+
+.call-to-action a {
+  display: inline-block; /* Ensures button is treated as a block-level element */
+  background-color: #4a90e2;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 1rem; /* Ensures some space between the paragraph and the button */
+}
+
+.call-to-action a:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}
+
+    .blog .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .blog article {
+      background-color: #f7fafc;
+      padding: 1rem;
+      border-radius: 0.375rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog article h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #4a90e2;
+    }
+
+    .blog article a {
+      color: #4a90e2;
+      text-decoration: none;
+      transition: text-decoration 0.3s, color 0.3s;
+    }
+
+    .blog article a:hover {
+      text-decoration: underline;
+      color: #357ABD;
+    }
+    .testimonials {
+  background-color: #f0f4f8;
+  padding: 2rem;
+}
+
+.testimonials h2 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem; /* Increased margin for better spacing */
+  color: #2d3748;
+  text-align: center;
+}
+
+.testimonials .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; /* Space between grid items */
+  justify-items: center;
+}
+
+.testimonials div {
+  background-color: #ffffff; /* Card background color */
+  padding: 1.5rem; /* Increased padding for card content */
+  border-radius: 0.5rem; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 100%; /* Ensure cards are responsive */
+  width: 100%; /* Ensure full width within the grid item */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e2e8f0; /* Light border for the card */
+}
+
+.testimonials div:hover {
+  transform: scale(1.03); /* Slightly smaller scale for a more subtle effect */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+.testimonials div p {
+  font-size: 1rem;
+  color: #2d3748;
+  margin: 0 0 1rem;
+}
+
+.testimonials div p:last-child {
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+    footer {
+      background-color: #2d3748;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    footer nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    footer nav a:hover {
+      color: #ffffff;
+    }
+
+    @media (min-width: 640px) {
+      .hero-content {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .hero-content h2 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .blog .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .blog .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Welcome to the <%= title %> page</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/users">Users</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero-content">
+    <div>
+      <h2>Welcome to Our Amazing Site!</h2>
+      <p>Discover our latest updates, features, and more. We're glad to have you here!</p>
+      <a href="/subscribe">Get Started</a>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Featured Section -->
+    <section class="featured">
+      <h2>Featured Content</h2>
+      <p>Here you find proper solution of the things you are tring to find in a one platform!!!.</p>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="call-to-action">
+      <h2>Stay Updated!</h2>
+      <p>Subscribe to our newsletter to get the latest updates and features delivered to your inbox.</p>
+      <a href="/subscribe">Subscribe Now</a>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+      <h2>Latest Blog Posts</h2>
+      <div class="grid">
+        <!-- Blog Post 1 -->
+        <article>
+          <h3>Blog Post Title 1</h3>
+          <p>A brief description of the blog post content. Read more about this interesting topic.</p>
+          <a href="#">Read More</a>
+        </article>
+        <!-- Blog Post 2 -->
+        <article>
+          <h3>Blog Post Title 2</h3>
+          <p>A brief description of the blog post content. Read more about this interesting topic.</p>
+          <a href="#">Read More</a>
+        </article>
+        <!-- Blog Post 3 -->
+        <article>
+          <h3>Blog Post Title 3</h3>
+          <p>A brief description of the blog post content. Read more about this interesting topic.</p>
+          <a href="#">Read More</a>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="flex">
+        <!-- Testimonial 1 -->
+        <div>
+          <p>"This is an amazing service! It has made my life so much easier."</p>
+          <p>User Name 1</p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div>
+          <p>"Highly recommend it! The customer support is fantastic."</p>
+          <p>User Name 2</p>
+        </div>
+        <!-- Testimonial 3 -->
+        <div>
+          <p>"A top-notch experience from start to finish. Very satisfied."</p>
+          <p>User Name 3</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 My Node Project. All rights reserved.</p>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/users">Users</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </footer>
+  
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
